@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Anchor
+  - Meteor
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX
