@@ -11,10 +11,15 @@ public class Arrow : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool _inAir = false;
     private Vector3 _lastPosition = Vector3.zero;
+    private ParticleSystem _particleSystem;
+    private TrailRenderer _trailRenderer;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
+        _trailRenderer = GetComponentInChildren<TrailRenderer>();
+
         PullInteraction.PullActionReleased += Release;
         Stop();
     }
@@ -34,6 +39,9 @@ public class Arrow : MonoBehaviour
         _rigidbody.AddForce(force, ForceMode.Impulse);
         StartCoroutine(RotateWithVelocity());
         _lastPosition = tip.position;
+
+        _particleSystem.Play();
+        _trailRenderer.emitting = true;
     }
 
 
@@ -42,7 +50,7 @@ public class Arrow : MonoBehaviour
         yield return new WaitForFixedUpdate();
         while (_inAir)
         {
-            Quaternion newRotation = Quaternion.LookRotation(_rigidbody.velocity, transform.up);
+            var newRotation = Quaternion.LookRotation(_rigidbody.velocity, transform.up);
             transform.rotation = newRotation;
             yield return null;
         }
@@ -50,50 +58,49 @@ public class Arrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_inAir)
+        if (!_inAir)
         {
-            CheckCollision();
-            _lastPosition = tip.position;
+            return;
         }
+
+        CheckCollision();
+        _lastPosition = tip.position;
     }
 
     private void CheckCollision()
     {
-        if (Physics.Linecast(_lastPosition, tip.position, out RaycastHit hitInfo))
+        if (!Physics.Linecast(_lastPosition, tip.position, out var hitInfo))
         {
-            if (hitInfo.transform.gameObject.layer != LayerMask.NameToLayer("Body"))
-            {
-                if (hitInfo.transform.TryGetComponent(out Rigidbody body))
-                {
-                    _rigidbody.interpolation = RigidbodyInterpolation.None;
-                    transform.parent = hitInfo.transform;
-                    body.AddForce(_rigidbody.velocity, ForceMode.Impulse);
-                }
-                Stop();
-            }
+            return;
         }
+
+        if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Body"))
+        {
+            return;
+        }
+
+        if (hitInfo.transform.TryGetComponent(out Rigidbody body))
+        {
+            _rigidbody.interpolation = RigidbodyInterpolation.None;
+            transform.parent = hitInfo.transform;
+            body.AddForce(_rigidbody.velocity * 0.5f, ForceMode.Impulse);
+        }
+
+        Stop();
     }
-    
-private void Stop()
+
+    private void Stop()
     {
         _inAir = false;
         SetPhysics(false);
-       
+
+        _particleSystem.Stop();
+        _trailRenderer.emitting = false;
     }
 
-private void SetPhysics(bool usePhysics)
-{
-    _rigidbody.useGravity = usePhysics;
-    _rigidbody.isKinematic = !usePhysics;
-}
-
-    // Start is called before the first frame update
-    void Start()
+    private void SetPhysics(bool usePhysics)
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        _rigidbody.useGravity = usePhysics;
+        _rigidbody.isKinematic = !usePhysics;
     }
 }

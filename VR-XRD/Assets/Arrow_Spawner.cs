@@ -11,8 +11,8 @@ public class Arrow_Spawner : MonoBehaviour
     public float arrowRespawnTime = 1f;
 
     private XRGrabInteractable _bow;
-    private bool _arrowNotched = false;
-    private GameObject _currentArrow = null;
+    private bool _arrowNotched;
+    private GameObject _currentArrow;
 
 
     // Start is called before the first frame update
@@ -30,16 +30,16 @@ public class Arrow_Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_bow.isSelected && _arrowNotched == false)
+        switch (_bow.isSelected)
         {
-            _arrowNotched = true;
-            StartCoroutine("DelayedSpawn");
-        }
-
-        if (!_bow.isSelected && _currentArrow != null)
-        {
-            Destroy(_currentArrow);
-            NotchEmpty(1f);
+            case true when _arrowNotched == false:
+                _arrowNotched = true;
+                StartCoroutine("DelayedSpawn");
+                break;
+            case false when _currentArrow != null:
+                Destroy(_currentArrow);
+                NotchEmpty(1f);
+                break;
         }
     }
 
@@ -49,7 +49,7 @@ public class Arrow_Spawner : MonoBehaviour
         _currentArrow = null;
     }
 
-    IEnumerator DelayedSpawn()
+   private IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(arrowRespawnTime);
         _currentArrow = Instantiate(arrowPrefab, notch.transform);

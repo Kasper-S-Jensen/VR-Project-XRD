@@ -10,64 +10,82 @@ public class PullInteraction : XRBaseInteractable
 
     public Transform start, end;
     public GameObject notch;
-    public float pullAmount { get; private set; } = 0.0f;
+    private float _pullAmount;
 
     private LineRenderer _lineRenderer;
-    private IXRSelectInteractor pullingInteractor = null;
+    private IXRSelectInteractor _pullingInteractor = null;
+    private AudioSource _audioSource;
 
     protected override void Awake()
     {
         base.Awake();
         _lineRenderer = GetComponent<LineRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void SetPullInteractor(SelectEnterEventArgs args)
     {
-        pullingInteractor = args.interactorObject;
+        _pullingInteractor = args.interactorObject;
     }
 
     public void Release()
     {
-        PullActionReleased?.Invoke(pullAmount);
-        pullingInteractor = null;
-        pullAmount = 0f;
-        notch.transform.localPosition =
-            new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y, 0f);
+        PullActionReleased?.Invoke(_pullAmount);
+        _pullingInteractor = null;
+        _pullAmount = 0f;
+        var localPosition = notch.transform.localPosition;
+        localPosition =
+            new Vector3(localPosition.x, localPosition.y, 0f);
+        notch.transform.localPosition = localPosition;
         UpdateString();
+        PlayReleaseSound();
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {
         base.ProcessInteractable(updatePhase);
-        if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
+        if (updatePhase != XRInteractionUpdateOrder.UpdatePhase.Dynamic)
         {
-            if (isSelected)
-            {
-                var pullPosition = pullingInteractor.transform.position;
-                pullAmount = CalculatePull(pullPosition);
-                UpdateString();
-            }
+            return;
         }
+
+        if (!isSelected)
+        {
+            return;
+        }
+
+        var pullPosition = _pullingInteractor.transform.position;
+        _pullAmount = CalculatePull(pullPosition);
+        UpdateString();
     }
 
     private float CalculatePull(Vector3 pullPosition)
     {
-        Vector3 pullDirection = pullPosition - start.position;
-        Vector3 targetDirection = end.position - start.position;
-        float maxLength = targetDirection.magnitude;
+        var pullDirection = pullPosition - start.position;
+        var targetDirection = end.position - start.position;
+        var maxLength = targetDirection.magnitude;
         targetDirection.Normalize();
-        float pullValue = Vector3.Dot(pullDirection, targetDirection) / maxLength;
+        var pullValue = Vector3.Dot(pullDirection, targetDirection) / maxLength;
         return Mathf.Clamp(pullValue, 0f, 1f);
     }
 
     private void UpdateString()
     {
         var linePosition = Vector3.forward *
-                           Mathf.Lerp(start.transform.localPosition.z, end.transform.localPosition.z, pullAmount);
-        notch.transform.localPosition = new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y,
+                           Mathf.Lerp(start.transform.localPosition.z, end.transform.localPosition.z, _pullAmount);
+        var localPosition = notch.transform.localPosition;
+        localPosition = new Vector3(localPosition.x, localPosition.y,
             linePosition.z + .2f);
+        notch.transform.localPosition = localPosition;
         _lineRenderer.SetPosition(1, linePosition);
     }
 
-    // Update is called once per frame
+    private void PlayReleaseSound()
+    {
+        if (_audioSource.clip != null)
+        {
+            _audioSource.Play();
+        }
+    }
 }
