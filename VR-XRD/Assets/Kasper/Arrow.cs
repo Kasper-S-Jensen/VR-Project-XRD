@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.State;
 
 public class Arrow : MonoBehaviour
 {
@@ -13,10 +15,16 @@ public class Arrow : MonoBehaviour
     private Vector3 _lastPosition = Vector3.zero;
     private ParticleSystem _particleSystem;
     private TrailRenderer _trailRenderer;
+    private ClimbInteractable _climbInteractable;
+    private XRInteractableAffordanceStateProvider _affordanceStateProvider;
+    private BoxCollider _boxCollider;
 
     private void Awake()
     {
+        _affordanceStateProvider = GetComponent<XRInteractableAffordanceStateProvider>();
         _rigidbody = GetComponent<Rigidbody>();
+        _boxCollider = GetComponent<BoxCollider>();
+        _climbInteractable = GetComponent<ClimbInteractable>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();
         _trailRenderer = GetComponentInChildren<TrailRenderer>();
 
@@ -79,8 +87,18 @@ public class Arrow : MonoBehaviour
             return;
         }
 
+        if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("ClimbableWall"))
+        {
+            _boxCollider.enabled = true;
+            _climbInteractable.enabled = true;
+            _affordanceStateProvider.enabled = true;
+        }
+
         if (hitInfo.transform.TryGetComponent(out Rigidbody body))
         {
+            //modify this collision so that if it hit a cretain layer, it will stick to it and add a climbinteable script to the arrow
+
+
             _rigidbody.interpolation = RigidbodyInterpolation.None;
             transform.parent = hitInfo.transform;
             body.AddForce(_rigidbody.velocity * 0.5f, ForceMode.Impulse);
