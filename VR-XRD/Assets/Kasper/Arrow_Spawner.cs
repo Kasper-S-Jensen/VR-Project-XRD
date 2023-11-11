@@ -53,8 +53,6 @@ public class Arrow_Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(arrowRespawnTime);
         _currentArrow = Instantiate(arrowPrefab, notch.transform);
-       //remove from parent 
-        _currentArrow.transform.parent = null;
-       
+
     }
 }
