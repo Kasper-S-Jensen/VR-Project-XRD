@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 452134}
   - component: {fileID: 3363596}
   - component: {fileID: 2318342}
+  - component: {fileID: 8668933773317286081}
   m_Layer: 0
   m_Name: Lion_statue
   m_TagString: Untagged
@@ -83,6 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8668933773317286081
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117814}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.609, y: 1.6140001, z: 0.96500003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.017, y: 0.18800001, z: 0.632}
+  m_TimeToStationary: 0.5
 --- !u!1 &119242
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +111,7 @@ GameObject:
   - component: {fileID: 425092}
   - component: {fileID: 3392544}
   - component: {fileID: 2323914}
+  - component: {fileID: 3806978148178260587}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -166,6 +184,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3806978148178260587
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119242}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.68, y: 1.654, z: 0.28500003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.018000001, y: 0.157, z: -0.564}
+  m_TimeToStationary: 0.5
 --- !u!1 &122286
 GameObject:
   m_ObjectHideFlags: 0
