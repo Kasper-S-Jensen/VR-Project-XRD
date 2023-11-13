@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +6,8 @@ using Random = UnityEngine.Random;
 
 public class NpcMovementController : MonoBehaviour
 {
-    [SerializeField] private LayerMask groundMask;
-    [SerializeField] private float patrollingRange;
     [SerializeField] private List<Transform> waypoints;
+    [SerializeField] private float waitingDelayTime;
 
     private NavMeshAgent _navMeshAgent;
     private Vector3 _wayPoint;
@@ -19,15 +17,15 @@ public class NpcMovementController : MonoBehaviour
 
     private void Awake()
     {
+        waitingDelayTime = 4f;
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        // Check if the agent has reached its destination
         if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.1f)
         {
-            StartCoroutine(WaitAndSetRandomDestination(4f));
+            StartCoroutine(WaitAndSetRandomDestination(waitingDelayTime));
         }
     }
 
@@ -44,13 +42,10 @@ public class NpcMovementController : MonoBehaviour
         
         _navMeshAgent.SetDestination(_currentWaypoint.position);
     }
-    
-    IEnumerator WaitAndSetRandomDestination(float delay)
-    {
-        // Wait for the specified delay
-        yield return new WaitForSeconds(delay);
 
-        // Call the function to set a new random destination
+    private IEnumerator WaitAndSetRandomDestination(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         SetRandomDestination();
     }
 }
