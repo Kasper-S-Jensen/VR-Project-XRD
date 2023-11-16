@@ -22,7 +22,7 @@ public class AnimationController : MonoBehaviour
 
     private void MovingAnimation()
     {
-        var speed = _navMeshAgent.speed;
+        var speed = _navMeshAgent.velocity.magnitude;
         _animator.SetFloat(Speed, speed);
     }
 }

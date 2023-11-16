@@ -19,8 +19,8 @@ TagManager:
   - ground
   - Hand UI Ray
   - Body
-  - 
-  - 
+  - Static
+  - Interactable
   - 
   - 
   - ClimbableWall
