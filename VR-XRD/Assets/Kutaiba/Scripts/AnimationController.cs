@@ -1,28 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AnimationController : MonoBehaviour
+namespace Kutaiba.Scripts
 {
-    private Animator _animator;
-    private NavMeshAgent _navMeshAgent;
-    private static readonly int Speed = Animator.StringToHash("Speed");
-
-    private void Start()
+    public class AnimationController : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-    }
+        private Animator _animator;
+        private NavMeshAgent _navMeshAgent;
+        private static readonly int Speed = Animator.StringToHash("Speed");
 
-    private void Update()
-    {
-        MovingAnimation();
-    }
+        private void Start()
+        {
+            _animator = GetComponent<Animator>();
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+        }
 
-    private void MovingAnimation()
-    {
-        var speed = _navMeshAgent.velocity.magnitude;
-        _animator.SetFloat(Speed, speed);
+        private void Update()
+        {
+            MovingAnimation();
+        }
+
+        private void MovingAnimation()
+        {
+            var speed = _navMeshAgent.velocity.magnitude;
+            _animator.SetFloat(Speed, speed);
+        }
     }
 }
