@@ -8,6 +8,10 @@ TagManager:
   - Meteor
   - LeftHand
   - RightHand
+  - Chickenleg
+  - Carrot
+  - Crystal
+  - Key
   layers:
   - Default
   - TransparentFX

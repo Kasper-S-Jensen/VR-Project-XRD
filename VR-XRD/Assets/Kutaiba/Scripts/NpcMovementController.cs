@@ -31,18 +31,28 @@ public class NpcMovementController : MonoBehaviour
         var isInRange = PlayerInRange();
         if (!isInRange)
         {
-            if (_navMeshAgent.pathPending || !(_navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)) return;
-            StartCoroutine(WaitAndSetRandomDestination(waitingDelayTime));
-            SetRandomDestination();
+            Patrole();
         }
         else
         {
-            var position = _player.transform.position;
-            var lookAtTarget =
-                new Vector3(position.x, transform.position.y, position.z);
-            transform.LookAt(lookAtTarget);
-            _navMeshAgent.SetDestination(position);
+            GoToPlayer();
         }
+    }
+
+    private void Patrole()
+    {
+        if (_navMeshAgent.pathPending || !(_navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)) return;
+        StartCoroutine(WaitAndSetRandomDestination(waitingDelayTime));
+        SetRandomDestination();
+    }
+
+    private void GoToPlayer()
+    {
+        var position = _player.transform.position;
+        _navMeshAgent.SetDestination(position);
+        var lookAtTarget =
+            new Vector3(position.x, transform.position.y, position.z);
+        transform.LookAt(lookAtTarget);
     }
 
     private void SetRandomDestination()
