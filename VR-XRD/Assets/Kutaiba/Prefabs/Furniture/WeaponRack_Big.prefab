@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8669240701490022791}
   - component: {fileID: 8669240701489220007}
   - component: {fileID: 8669240701488122727}
-  - component: {fileID: -1489154940036554424}
+  - component: {fileID: 415958528762787313}
   m_Layer: 0
   m_Name: WeaponRack_Big
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-1489154940036554424
-BoxCollider:
+--- !u!64 &415958528762787313
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,6 +102,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1590223, y: 1.39888, z: 0.7286365}
-  m_Center: {x: 0.000000029802322, y: 0.69944, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 5a3630cf5f3e0b7489e748180d9a081a, type: 3}
