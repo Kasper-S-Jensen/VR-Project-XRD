@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 430121836803959654}
   - component: {fileID: 1386864494587048637}
   - component: {fileID: 3028392031851577663}
-  - component: {fileID: 3370313367104942264}
+  - component: {fileID: 3417878747131860814}
   m_Layer: 0
   m_Name: CaveTile
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3370313367104942264
+--- !u!65 &3417878747131860814
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,5 +103,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.999999, y: 2.2204459e-16, z: 9.999999}
+  m_Size: {x: 9.999999, y: 0.09, z: 9.999999}
   m_Center: {x: 0, y: 0, z: 0}
