@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     }
     public void GoToMainMenu(Component sender, object data)
     {
-      
+        SceneTransitionManager.singleton.GoToSceneAsync(0);
     }
     
     public void RestartLevel(Component sender, object data)
