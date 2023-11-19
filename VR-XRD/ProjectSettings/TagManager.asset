@@ -12,6 +12,12 @@ TagManager:
   - Carrot
   - Crystal
   - Key
+  - CrystalSpawnLocation
+  - PlayerSpawnLocation
+  - BlanksSpawnLocaion
+  - Lava
+  - Blank
+  - LavaCantWalk
   layers:
   - Default
   - TransparentFX
@@ -25,7 +31,7 @@ TagManager:
   - Body
   - Static
   - Interactable
-  - 
+  - Lava
   - 
   - ClimbableWall
   - 
