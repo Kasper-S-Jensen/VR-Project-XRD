@@ -21,6 +21,7 @@ public class FinalDoor : MonoBehaviour
 
     private void OnKeyPlaced(SelectEnterEventArgs arg0)
     {
+        gameObject.isStatic = false;
         doorGrabInteractable.interactionLayers = LayerMask.GetMask("Default");
     }
 
