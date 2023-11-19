@@ -10,11 +10,13 @@ public class FootstepController : MonoBehaviour
     public AudioClip footstepSound;
     private AudioSource audioSource;
     private CharacterController characterController;
+    public GameObject Vignette;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
+        Vignette.SetActive(false);
     }
 
     private void Update()
@@ -26,10 +28,12 @@ public class FootstepController : MonoBehaviour
         if ( playerSpeed > 1f && !audioSource.isPlaying)
         {
             audioSource.Play();
+            Vignette.SetActive(true);
         }
         else if ( playerSpeed <= 0.1f && audioSource.isPlaying)
         {
             audioSource.Stop();
+            Vignette.SetActive(false);
         }
     }
 }

@@ -17,10 +17,12 @@ public class NpcMovementController : MonoBehaviour
     private bool _isWayPointSet;
     private Transform _currentWaypoint;
     private GameObject _player;
-
+    public AudioClip footstepSound;
+    private AudioSource audioSource;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         waitingDelayTime = 4f;
         _player = GameObject.FindGameObjectWithTag("Player");
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -28,6 +30,7 @@ public class NpcMovementController : MonoBehaviour
 
     private void Update()
     {
+        PlayFootsteps();
         var isInRange = PlayerInRange();
         if (!isInRange)
         {
@@ -39,6 +42,21 @@ public class NpcMovementController : MonoBehaviour
         }
     }
 
+    private void PlayFootsteps()
+    {
+
+        var playerSpeed = _navMeshAgent.velocity.magnitude;
+
+        if ( playerSpeed > 1f && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if ( playerSpeed <= 0.1f && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+
+    }
     private void Patrole()
     {
         if (_navMeshAgent.pathPending || !(_navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)) return;
