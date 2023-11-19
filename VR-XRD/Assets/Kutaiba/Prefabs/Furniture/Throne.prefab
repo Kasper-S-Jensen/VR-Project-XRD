@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1761618123306720764}
   - component: {fileID: 3449016023671984729}
   - component: {fileID: 592692314880190099}
-  - component: {fileID: -4086073157780090984}
+  - component: {fileID: 7233050689283389051}
   m_Layer: 0
   m_Name: Throne
   m_TagString: Untagged
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-4086073157780090984
-BoxCollider:
+--- !u!64 &7233050689283389051
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,6 +103,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.71604747, y: 1.6636374, z: 0.81528}
-  m_Center: {x: 0, y: 0.8318187, z: -0.00642401}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5263691126925263255, guid: 5733f9122e42eac43a5c2fe88ce50d79, type: 3}

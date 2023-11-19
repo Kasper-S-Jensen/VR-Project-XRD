@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,24 @@ public class FootstepController : MonoBehaviour
     private AudioSource audioSource;
     private CharacterController characterController;
     public GameObject Vignette;
+    private GameObject _playerSpawnLocations;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
         Vignette.SetActive(false);
+        _playerSpawnLocations = GameObject.FindGameObjectWithTag("PlayerSpawnLocation");
+    }
+
+    public void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Lava"))
+        {
+            Debug.Log("Player touched lava");
+            transform.position = _playerSpawnLocations.transform.position;
+        }
+     
     }
 
     private void Update()

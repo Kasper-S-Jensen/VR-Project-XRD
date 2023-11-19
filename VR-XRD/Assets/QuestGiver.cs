@@ -59,7 +59,7 @@ public class QuestGiver : MonoBehaviour
     }
     public void OnConfirmButtonClickAfterGemFound()
     {
-     
+        StoryManager.instance.UpdateStoryState();
         gemFoundDialog.SetActive(false);
     }
     
