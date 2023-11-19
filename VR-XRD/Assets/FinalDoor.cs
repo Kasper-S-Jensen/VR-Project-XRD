@@ -5,12 +5,28 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class FinalDoor : MonoBehaviour
 {
-    public XRGrabInteractable XRGrabInteractable;
+    public XRSocketInteractor keyholeInteractor;
+    public XRGrabInteractable doorGrabInteractable;
 
-
-    public void onKeyPlaced()
+    private void Start()
     {
-        XRGrabInteractable.enabled = true;
+        if (keyholeInteractor == null)
+        {
+            return;
+        }
+
+        keyholeInteractor.selectEntered.AddListener(OnKeyPlaced);
+        keyholeInteractor.selectExited.AddListener(OnKeyRemoved);
+    }
+
+    private void OnKeyPlaced(SelectEnterEventArgs arg0)
+    {
+        doorGrabInteractable.interactionLayers = LayerMask.GetMask("Default");
+    }
+
+    private void OnKeyRemoved(SelectExitEventArgs arg0)
+    {
+        doorGrabInteractable.interactionLayers = LayerMask.GetMask("Ignore Raycast");
     }
     
 }
