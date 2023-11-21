@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class GameStartMenu : MonoBehaviour
 {
-    [Header("UI Pages")]
-    public GameObject mainMenu;
+    [Header("UI Pages")] public GameObject mainMenu;
     public GameObject about;
 
-    [Header("Main Menu Buttons")]
-    public Button startButton;
+    [Header("Main Menu Buttons")] public Button startButton;
     public Button aboutButton;
     public Button quitButton;
 
@@ -41,8 +39,6 @@ public class GameStartMenu : MonoBehaviour
     {
         HideAll();
         SceneTransitionManager.singleton.GoToSceneAsync(1);
-        
-       
     }
 
     public void HideAll()
@@ -56,11 +52,7 @@ public class GameStartMenu : MonoBehaviour
         mainMenu.SetActive(true);
         about.SetActive(false);
     }
-    public void EnableOption()
-    {
-        mainMenu.SetActive(false);
-        about.SetActive(false);
-    }
+
     public void EnableAbout()
     {
         mainMenu.SetActive(false);

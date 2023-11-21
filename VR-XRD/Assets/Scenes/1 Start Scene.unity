@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009521281, g: 0.008756566, b: 0.021564744, a: 1}
+  m_IndirectSpecularColor: {r: 0.009522524, g: 0.0087574925, b: 0.02156644, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1329,6 +1329,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     playOnAwake: 0
+    source: {fileID: 0}
+  - name: background
+    clip: {fileID: 8300000, guid: 2beda182f9f44c9449cd8a7d29c413f7, type: 3}
+    volume: 0.433
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
     source: {fileID: 0}
 --- !u!1 &846327981
 GameObject:
