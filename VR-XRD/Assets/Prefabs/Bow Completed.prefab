@@ -765,7 +765,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 16
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -1019,5 +1019,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00085278647, y: 0.00088367384, z: 0.0043199426}
-  m_Center: {x: -0.00009351973, y: -0.0000000027831693, z: -0.000042034433}
+  m_Size: {x: 0.00061769097, y: 0.00088367384, z: 0.0043199426}
+  m_Center: {x: 0.000024028033, y: -0.0000000027831693, z: -0.000042034437}

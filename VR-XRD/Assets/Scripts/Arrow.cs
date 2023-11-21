@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VRTemplate;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.State;
@@ -18,6 +19,7 @@ public class Arrow : MonoBehaviour
     private ClimbInteractable _climbInteractable;
     private XRInteractableAffordanceStateProvider _affordanceStateProvider;
     private BoxCollider _boxCollider;
+    private DestroyObject _destroyObject;
 
     private void Awake()
     {
@@ -27,7 +29,8 @@ public class Arrow : MonoBehaviour
         _climbInteractable = GetComponent<ClimbInteractable>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();
         _trailRenderer = GetComponentInChildren<TrailRenderer>();
-
+        _destroyObject = GetComponent<DestroyObject>();
+        _destroyObject.enabled = false;
         PullInteraction.PullActionReleased += Release;
         Stop();
     }
@@ -81,7 +84,7 @@ public class Arrow : MonoBehaviour
         {
             return;
         }
-
+        _destroyObject.enabled = true;
         if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Body"))
         {
             return;
@@ -92,13 +95,11 @@ public class Arrow : MonoBehaviour
             _boxCollider.enabled = true;
             _climbInteractable.enabled = true;
             _affordanceStateProvider.enabled = true;
+            _destroyObject.enabled = false;
         }
 
         if (hitInfo.transform.TryGetComponent(out Rigidbody body))
         {
-            //modify this collision so that if it hit a cretain layer, it will stick to it and add a climbinteable script to the arrow
-
-
             _rigidbody.interpolation = RigidbodyInterpolation.None;
             transform.parent = hitInfo.transform;
             body.AddForce(_rigidbody.velocity * 0.5f, ForceMode.Impulse);

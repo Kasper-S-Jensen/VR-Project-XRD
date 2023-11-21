@@ -993,6 +993,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1681626012147377806}
     m_Modifications:
+    - target: {fileID: 703966863986000124, guid: 11c0ef286221a8d43ab3b8fc71421520, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 6102737341392681739, guid: 11c0ef286221a8d43ab3b8fc71421520, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.014222101
@@ -1188,8 +1192,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8357468394852652487, guid: a3bbf136e416136498ffe79e57b65969, type: 3}
     - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_Size.x
+      value: 8.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
       propertyPath: m_Size.y
-      value: 0.36
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
       propertyPath: m_Center.x
@@ -5948,7 +5956,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 908
+  m_VersionIndex: 911
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10749,7 +10757,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 108
+  m_VersionIndex: 111
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10889,6 +10897,10 @@ PrefabInstance:
     - target: {fileID: 5675712537768479228, guid: 8cda7687928e5174ea2627e48a3c6d69, type: 3}
       propertyPath: m_Name
       value: Dungeon_Wall_Var3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675712537768479228, guid: 8cda7687928e5174ea2627e48a3c6d69, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5675712537768515036, guid: 8cda7687928e5174ea2627e48a3c6d69, type: 3}
       propertyPath: m_LocalScale.x
@@ -15550,7 +15562,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 812
+  m_VersionIndex: 815
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -20446,7 +20458,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1246
+  m_VersionIndex: 1249
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -20498,8 +20510,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8357468394852652487, guid: a3bbf136e416136498ffe79e57b65969, type: 3}
     - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_Size.x
+      value: 8.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
       propertyPath: m_Size.y
-      value: 0.36
+      value: 3.5100002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_Size.z
+      value: 9.893921
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_Center.x
+      value: 0.000007785096
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_Center.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_Center.z
+      value: -0.7230354
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075328133592551101, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 5525627692653591997, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20630,6 +20666,10 @@ PrefabInstance:
     - target: {fileID: 5592086499432736696, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
       propertyPath: m_Name
       value: LavaTileBurning (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5592086499432736696, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5592086499432736696, guid: cb764c3f7699c274ba8a9c786b7595bd, type: 3}
       propertyPath: m_TagString
@@ -20783,8 +20823,84 @@ PrefabInstance:
     m_TransformParent: {fileID: 5132201563112112334}
     m_Modifications:
     - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: m_Volume
+      value: 0.568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
       propertyPath: MaxDistance
-      value: 7
+      value: 7.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: MinDistance
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
+      value: 0.25490195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.5098039
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
+      value: -3.924646
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.9811615
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inSlope
+      value: 0.19206835
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -3.924646
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -0.9811615
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inWeight
+      value: 0.22396179
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outSlope
+      value: 0.19206835
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585358309091586807, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4034485335653180680, guid: 38f4600e805a39540b54c632a6de0e00, type: 3}
       propertyPath: m_Name
@@ -25520,7 +25636,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 42
+  m_VersionIndex: 45
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -25624,7 +25740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3417878747131860814, guid: 357efd378eb21a049b74d768d42133ce, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
-      value: 1
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 5105173207100900422, guid: 357efd378eb21a049b74d768d42133ce, type: 3}
       propertyPath: m_Name
@@ -28702,7 +28818,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7
+  m_VersionIndex: 10
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
