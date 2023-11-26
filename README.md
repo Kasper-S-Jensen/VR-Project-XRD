@@ -74,4 +74,6 @@ https://www.youtube.com/watch?v=T9GeSG8wJaQ&ab_channel=KasperS.Jensen
 * event system: https://www.gamedev.lu/game-assets <br/> <br/>
 * Liquid shader: https://github.com/Macoron/Unity-Simple-Liquid <br/>
 * Sound effects: https://pixabay.com <br/>
+* Characters and animations:
+  https://www.mixamo.com
 
